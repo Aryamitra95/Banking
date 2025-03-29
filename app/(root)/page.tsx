@@ -23,7 +23,7 @@ const Home = async() =>{
                     />
 
                 </header>
-                RECENT TRANSACTIONS
+                
             </div>
             <RightSidebar 
             user={loggedIn}

@@ -200,9 +200,18 @@ export const authFormSchema = (type: string) => z.object({
   password: z.string().min(8),
   firstName:  type === 'sign-in' ? z.string().optional() : z.string().min(3),
   lastName:  type === 'sign-in' ? z.string().optional() : z.string().min(3),
-  address:  type === 'sign-in' ? z.string().optional() : z.string().min(5).max(60),
+  address1:  type === 'sign-in' ? z.string().optional() : z.string().min(5).max(60),
   state:  type === 'sign-in' ? z.string().optional() : z.string().min(5).max(20),
   pinCode:  type === 'sign-in' ? z.string().optional() : z.string().length(6),
   dateOfBirth:  type === 'sign-in' ? z.string().optional() : z.string().min(3).max(10),
   city:  type === 'sign-in' ? z.string().optional() : z.string().min(3).max(15),
+  panCard: type==='sign-in '? z.string().optional() : z.string().min(8).max(15),
 })
+export const AccountFormSchema = z.object({
+  All_active_acc: z.number().nonnegative("Must be a positive number").default(0),
+  Default_acc: z.number().nonnegative("Must be a positive number").default(0),
+  Acc_opened_12m: z.number().nonnegative("Must be a positive number").default(0),
+  Acc_age: z.number().nonnegative("Must be a positive number"),
+  Balance: z.number().nonnegative("Must be a positive number"),
+  no_of_defaults: z.number().nonnegative("Must be a positive number").default(0),
+});
